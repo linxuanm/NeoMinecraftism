@@ -26,6 +26,7 @@ public class SpellFactory {
 		meta.setDisplayName(ChatColor.GOLD + spell.getSpellName());
 		
 		List<String> lore = new ArrayList<>();
+
 		spell.getSpellDescription(lore);
 		meta.setLore(lore);
 		

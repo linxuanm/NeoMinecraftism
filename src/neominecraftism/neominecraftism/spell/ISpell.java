@@ -48,7 +48,7 @@ public abstract class ISpell extends IRegistryEntry<ISpell> {
 	public abstract SpellType getSpellType();
 	
 	/**
-	 * Gets the explanation to the function fo the spell the spell.
+	 * Gets the explanation to the function of the spell the spell.
 	 * 
 	 * @return The explanation of the spell.
 	 */
