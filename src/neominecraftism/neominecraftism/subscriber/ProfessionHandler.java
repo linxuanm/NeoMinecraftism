@@ -2,17 +2,16 @@ package neominecraftism.neominecraftism.subscriber;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-import org.bukkit.Bukkit;
-import org.bukkit.NamespacedKey;
+import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitScheduler;
 
 import neominecraftism.neominecraftism.NeoMinecraftism;
 import neominecraftism.neominecraftism.profession.IProfession;
@@ -20,40 +19,50 @@ import neominecraftism.neominecraftism.profession.ProfessionHelper;
 
 public class ProfessionHandler implements Listener {
 
+	public static void init(Server server) {
+		new ProfessionRunnable(server).runTaskTimer(NeoMinecraftism.getInstance(), 0, 10);
+	}
+	
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerLogin(PlayerLoginEvent event) {
-		if(!event.getPlayer().getPersistentDataContainer().has(ProfessionHelper.IDENTITY, ProfessionHelper.STRING_ARRAY)) {
+		List<IProfession> professions = ProfessionHelper.getProfessions(event.getPlayer());
+		if(professions.size()==0) {
 			List<IProfession> list= new ArrayList<IProfession>();
+			list.add(ProfessionHelper.getProfession("civilian"));
 			ProfessionHelper.setProfessions(event.getPlayer(), list);
 		}
-		new ProfessionEffect(event.getPlayer()).runTaskTimer(NeoMinecraftism.getInstance(), 0, 10);
 	}
 	/**
 	 * a runnable that is scheduled for every 10 tick
 	 */
-	class ProfessionEffect extends BukkitRunnable{
-		private Player player;
+	static class ProfessionRunnable extends BukkitRunnable{
+		private Server server;
 		private int count;
-		public ProfessionEffect(Player player) {
-			this.player = player;
+		public ProfessionRunnable(Server server) {
+			this.server = server;
 		}
 		@Override
 		public void run() {
-			if (player==null || !player.isValid()) {
+			if (server==null) {
 				this.cancel();
 			}
 			count++;
-			List<IProfession> professions = ProfessionHelper.getProfessions(player);
-			for(IProfession profession: professions) {
-				profession.effectPerHalfSecond(player);
-				if (count%10 == 0) {
-					profession.effectPerFiveSecond(player);
+			Collection<? extends Player> players = server.getOnlinePlayers();
+			for(Player player :players) {
+				List<IProfession> professions = ProfessionHelper.getProfessions(player);
+				if(professions.size()>0) {
+					for(IProfession profession: professions) {
+						profession.effectPerHalfSecond(player);
+						if (count%10 == 0) {
+							profession.effectPerFiveSecond(player);
+						}
+						if (count%20 == 0) {
+							profession.effectPerTenSecond(player);
+						}
+					}
 				}
-				if (count%20 == 0) {
-					profession.effectPerTenSecond(player);
-				}
-			}
-			
+				
+			}	
 		}
 		
 	}

@@ -34,6 +34,8 @@ public class NeoMinecraftism extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new SpellHandler(), this);
 		this.getServer().getPluginManager().registerEvents(new ProfessionHandler(), this);
 		this.getServer().getPluginManager().registerEvents(new WorldHandler(), this);
+		
+		ProfessionHandler.init(getServer());
 	}
 	
 	@Override

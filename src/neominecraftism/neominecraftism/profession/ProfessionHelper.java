@@ -31,6 +31,7 @@ public class ProfessionHelper {
 			profession.effectOnObtain(player);
 			return true;
 		} else {
+			player.sendMessage("无法就职！你已经是"+profession.getProfessionName());
 			return false;
 		}
 	}
@@ -47,7 +48,7 @@ public class ProfessionHelper {
 	}
 
 	public static List<IProfession> getProfessions(Player player) {
-		String[] profession_names = player.getPersistentDataContainer().get(IDENTITY, STRING_ARRAY);
+		String[] profession_names = NeoMinecraftism.getInstance().getStorageTracker().getPlayerStorage(player.getUniqueId()).getProfessions();
 		ArrayList<IProfession> professions  = new ArrayList<IProfession>();
 		if(profession_names!=null) {
 			for(String name: profession_names) {
@@ -57,12 +58,12 @@ public class ProfessionHelper {
 		return professions;
 	}
 	public static void setProfessions(Player player, List<IProfession> professions) {
-		if(professions.size()>0) {
+		if(professions!=null && professions.size()>0) {
 			String[] profession_names= new String[professions.size()];
 			for(int i = 0;i<professions.size();i++) {
 				profession_names[i] = professions.get(i).getRegistryName();
 			}
-			player.getPersistentDataContainer().set(IDENTITY, STRING_ARRAY, profession_names);
+			NeoMinecraftism.getInstance().getStorageTracker().getPlayerStorage(player.getUniqueId()).setProfessions(profession_names);
 		}	
 	}
 }

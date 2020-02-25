@@ -22,6 +22,5 @@ public class Registries {
 		handler.addRegistryType(IProfession.class);
 		handler.register(IProfession.class, new Civilian());
 		handler.register(IProfession.class, new Ranger());
-
 	}
 }
