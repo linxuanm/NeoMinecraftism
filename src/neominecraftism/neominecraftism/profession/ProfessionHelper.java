@@ -1,19 +1,16 @@
 package neominecraftism.neominecraftism.profession;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 
 import neominecraftism.neominecraftism.NeoMinecraftism;
-import neominecraftism.neominecraftism.subscriber.ProfessionHandler;
 import neominecraftism.neominecraftism.util.NBTHelper;
 import neominecraftism.neominecraftism.util.StringArrayDataType;
 
 public class ProfessionHelper {
-
 	
 	public static final NamespacedKey IDENTITY = NBTHelper.namespace("identities");
 	public static final StringArrayDataType STRING_ARRAY = new StringArrayDataType();

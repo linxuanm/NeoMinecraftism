@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 
 import neominecraftism.neominecraftism.profession.IProfession;
 
-public class Ranger extends IProfession{
+public class Ranger extends IProfession {
 
 	public Ranger() {
 		super("ranger");
@@ -31,6 +31,7 @@ public class Ranger extends IProfession{
 	public Material[] getMasterArmor() {
 		return null;
 	}
+	
 	@Override
 	public void effectPerFiveSecond(Player player) {
 		player.getInventory().addItem(new ItemStack(Material.ARROW));
