@@ -1,0 +1,5 @@
+main: neominecraftism.neominecraftism.NeoMinecraftism
+name: NeoMinecraftism
+version: 1.0.0
+api-version: 1.14
+commands:
