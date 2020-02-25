@@ -2,6 +2,7 @@ package neominecraftism.neominecraftism.spell;
 
 import java.util.List;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -31,9 +32,11 @@ public abstract class ISpell extends IRegistryEntry<ISpell> {
 	 * 
 	 * @return The description of the spell.
 	 */
-	public void getSpellDescription(List<String> lore) {
-		lore.add("法力值消耗: "+ this.getManaCost());
-		lore.add("冷却: "+ this.getManaCost());
+	public void setSpellDescription(List<String> lore) {
+		lore.add(ChatColor.ITALIC+this.getSpellType().getText());
+		lore.add(ChatColor.ITALIC+this.getSpellExplanation());
+		lore.add(ChatColor.ITALIC+"法力值消耗: "+ this.getManaCost());
+		lore.add(ChatColor.ITALIC+"冷却: "+ this.getManaCost());
 	}
 	
 	/**
@@ -44,7 +47,7 @@ public abstract class ISpell extends IRegistryEntry<ISpell> {
 	public abstract SpellType getSpellType();
 	
 	/**
-	 * Gets the explanation to the function fo the spell the spell.
+	 * Gets the explanation to the function of the spell the spell.
 	 * 
 	 * @return The explanation of the spell.
 	 */

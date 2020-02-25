@@ -34,7 +34,7 @@ public class MassHealingSpell extends ISpell {
 
 	@Override
 	public int getManaCost() {
-		return 0;
+		return 10;
 	}
 
 	@Override

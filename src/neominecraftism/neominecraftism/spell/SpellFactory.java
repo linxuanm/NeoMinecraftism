@@ -23,7 +23,7 @@ public class SpellFactory {
 		caster.getItemMeta().setDisplayName(spell.getSpellName());
 		
 		List<String> lore = new ArrayList<>();
-		spell.getSpellDescription(lore);
+		spell.setSpellDescription(lore);
 		caster.getItemMeta().setLore(lore);
 		
 		PersistentDataContainer tag = NBTHelper.getTag(caster);
