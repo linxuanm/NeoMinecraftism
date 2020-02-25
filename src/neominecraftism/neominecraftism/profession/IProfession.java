@@ -16,6 +16,7 @@ public abstract class IProfession extends IRegistryEntry<IProfession> {
 		super(registryName);
 	}
 	
+	
 	/**
 	 * Gets the display name of the profession.
 	 * 
@@ -54,46 +55,34 @@ public abstract class IProfession extends IRegistryEntry<IProfession> {
 	public abstract Material[] getMasterArmor();
 	
 	/**
-	 * the effect to player as the profession is obtained, for example adding attribute modifier
+	 * the effect to player as the profession is obtained, for example adding attribute modifier and giving profession-specific spells
 	 * 
-	 * @return whether the effect well behaved, usually a false means this profession does not 
-	 * do any thing at this time.
 	 */
-	public boolean effectOnObtain(Player player) {
-		return false;
+	public void effectOnObtain(Player player) {
 	}
 	
 	/**
 	 * the effect to player as the profession every 10 ticks, 
 	 * for example checking player's weapon/offhand item/health/potion effect...
 	 * 
-	 * @return whether the effect well behaved, usually a false means this profession does not do 
-	 * any thing at this time.
 	 */
-	public boolean effectPerHalfSecond(Player player) {
-		return false;
+	public void effectPerHalfSecond(Player player) {
 	}
 	
 	/**
 	 * the effect to player as the profession every 100 ticks (5 second), 
 	 * for example giving archer arrow
 	 * 
-	 * @return whether the effect well behaved, usually a false means this profession does not 
-	 * do any thing at this time.
 	 */
-	public boolean effectPerFiveSecond(Player player) {
-		return false;
+	public void effectPerFiveSecond(Player player) {
 	}
 	
 	/**
 	 * the effect to player as the profession every 200 ticks (10 second), usually for some effects 
 	 * that are more powerful, for example giving absorption/heal
 	 *  
-	 * @return whether the effect well behaved, usually a false means this profession does not do 
-	 * any thing at this time.
 	 */
-	public boolean effectPerTenSecond(Player player) {
-		return false;
+	public void effectPerTenSecond(Player player) {
 	}
 
 }
