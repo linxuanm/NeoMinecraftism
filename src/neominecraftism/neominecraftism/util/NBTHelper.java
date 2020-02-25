@@ -38,6 +38,7 @@ public class NBTHelper {
 	}
 	
 	public static <T> Optional<T> getTag(ItemStack stack, NamespacedKey id, PersistentDataType<?, T> type) {
+		if (!stack.hasItemMeta()) return Optional.empty();
 		return Optional.ofNullable(stack.getItemMeta().getPersistentDataContainer().get(id, type));
 	}
 	
@@ -53,6 +54,7 @@ public class NBTHelper {
 	}
 	
 	public static boolean hasTag(ItemStack stack, NamespacedKey id, PersistentDataType<?, ?> type) {
+		if (!stack.hasItemMeta()) return false;
 		return stack.getItemMeta().getPersistentDataContainer().has(id, type);
 	}
 	
