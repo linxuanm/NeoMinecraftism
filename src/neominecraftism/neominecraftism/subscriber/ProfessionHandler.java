@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-//import org.bukkit.Server;
+import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -34,18 +34,11 @@ public class ProfessionHandler implements Listener {
 	/**
 	 * a runnable that is scheduled for every 10 tick
 	 */
-//	static class ProfessionRunnable extends BukkitRunnable{
-//		private Server server;
-//		private int count;
-//		public ProfessionRunnable(Server server) {
-//			this.server = server;
-	class ProfessionEffect extends BukkitRunnable 
-	{
-		private Player player;
+	static class ProfessionRunnable extends BukkitRunnable{
+		private Server server;
 		private int count;
-		
-		public ProfessionEffect(Player player) {
-			this.player = player;
+		public ProfessionRunnable(Server server) {
+			this.server = server;
 		}
 		
 		@Override
