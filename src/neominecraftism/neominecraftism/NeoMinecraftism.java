@@ -24,8 +24,7 @@ public class NeoMinecraftism extends JavaPlugin {
 		
 		this.registryHandler = new RegistryHandler();
 		this.populateRegistries();
-		
-		
+				
 		this.getServer().getPluginManager().registerEvents(new SpellHandler(), this);
 	}
 	

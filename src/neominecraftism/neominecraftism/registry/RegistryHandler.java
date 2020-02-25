@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class RegistryHandler {
 	
-	public Map<Class<? extends IRegistryEntry<?>>, RegistryType> registries;
+	private Map<Class<? extends IRegistryEntry<?>>, RegistryType> registries;
 	
 	public RegistryHandler() {
 		this.registries = new HashMap<>();
