@@ -33,6 +33,7 @@ public class NeoMinecraftism extends JavaPlugin {
 		
 	}
 	
+	
 	public RegistryHandler getRegistryHandler() {
 		return this.registryHandler;
 	}

@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 
 import neominecraftism.neominecraftism.NeoMinecraftism;
+import neominecraftism.neominecraftism.profession.ProfessionHelper;
 import neominecraftism.neominecraftism.spell.ISpell;
 import neominecraftism.neominecraftism.spell.SpellFactory;
 import neominecraftism.neominecraftism.util.NBTHelper;
@@ -41,10 +42,14 @@ public class SpellHandler implements Listener {
 		} 
 	}
 	
+	
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onSpellUse(PlayerDropItemEvent event) {
 		event.getPlayer().getInventory().addItem(SpellFactory.createSpellStack("mass_healing_spell"));
+		ProfessionHelper.addProfession(event.getPlayer(), ProfessionHelper.getProfession("ranger"));
 	}
+	
+	
 	
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerJoin(PlayerJoinEvent event) {
