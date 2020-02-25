@@ -1,4 +1,4 @@
-package neominecraftism.neominecraftism.util;
+package neominecraftism.neominecraftism.spell;
 
 public enum SpellType {
 	
@@ -8,9 +8,10 @@ public enum SpellType {
 	
 	private String displayText;
 	
-	SpellType(String displayText){
+	SpellType(String displayText) {
 		this.displayText = displayText;
 	}
+	
 	public String getText() {
 		return displayText;
 	}

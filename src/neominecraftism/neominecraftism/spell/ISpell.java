@@ -1,6 +1,6 @@
 package neominecraftism.neominecraftism.spell;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -27,11 +27,11 @@ public abstract class ISpell extends IRegistryEntry<ISpell> {
 	public abstract String getSpellName();
 	
 	/**
-	 * Gets the description of the spell
+	 * Gets the description of the spell.
 	 * 
-	 * @return the description of the spell
+	 * @return The description of the spell.
 	 */
-	public void getSpellDescription(ArrayList<String> lore) {
+	public void getSpellDescription(List<String> lore) {
 		lore.add("法力值消耗: "+ this.getManaCost());
 		lore.add("冷却: "+ this.getManaCost());
 	}
@@ -41,7 +41,7 @@ public abstract class ISpell extends IRegistryEntry<ISpell> {
 	 * 
 	 * @return The type of the spell.
 	 */
-	public abstract String getSpellType();
+	public abstract SpellType getSpellType();
 	
 	/**
 	 * Gets the explanation to the function fo the spell the spell.

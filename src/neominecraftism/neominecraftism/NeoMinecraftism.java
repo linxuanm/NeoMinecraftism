@@ -34,6 +34,10 @@ public class NeoMinecraftism extends JavaPlugin {
 		
 	}
 	
+	public RegistryHandler getRegistryHandler() {
+		return this.registryHandler;
+	}
+	
 	private void populateRegistries() {
 		Registries.registerSpells(registryHandler);
 		Registries.registerMenus(registryHandler);
