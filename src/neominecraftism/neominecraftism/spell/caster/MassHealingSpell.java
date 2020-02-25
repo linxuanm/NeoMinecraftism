@@ -1,6 +1,7 @@
 package neominecraftism.neominecraftism.spell.caster;
 
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import neominecraftism.neominecraftism.spell.ISpell;
@@ -43,12 +44,12 @@ public class MassHealingSpell extends ISpell {
 	}
 
 	@Override
-	public boolean canCast(Player player) {
+	public boolean canUse(Player player, Block block) {
 		return true;
 	}
 
 	@Override
-	public void onUse(Player player) {
+	public void onUse(Player player, Block block) {
 		player.sendMessage("Hello World");
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import neominecraftism.neominecraftism.registry.IRegistryEntry;
@@ -81,12 +82,12 @@ public abstract class ISpell extends IRegistryEntry<ISpell> {
 	 * @param player The player that casts the spell.
 	 * @return Whether the spell can be casted.
 	 */
-	public abstract boolean canCast(Player player);
+	public abstract boolean canUse(Player player, Block block);
 	
 	/**
 	 * Perform the actual spell. Will not get called if 
 	 * 
 	 * @param player The player that casts the spell.
 	 */
-	public abstract void onUse(Player player);
+	public abstract void onUse(Player player, Block block);
 }
