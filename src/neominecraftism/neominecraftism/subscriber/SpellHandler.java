@@ -48,8 +48,10 @@ public class SpellHandler implements Listener {
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		event.getPlayer().getInventory().forEach(stack -> {
-			if (NBTHelper.isItemDisabled(stack)) {
-				NBTHelper.enableItem(stack);
+			if (stack != null) {
+				if (NBTHelper.isItemDisabled(stack)) {
+					NBTHelper.enableItem(stack);
+				}
 			}
 		});
 	}
