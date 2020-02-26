@@ -1,4 +1,4 @@
-package neominecraftism.neominecraftism.rpg.items;
+package neominecraftism.neominecraftism.rpgitems.builders;
 
 public enum ItemType {
 
@@ -7,6 +7,8 @@ public enum ItemType {
 	TASK_ITEM("任务物品"),
 	MATERIAL("材料"),
 	CURRENCY("货币"),
+	CONSUMABLES("消耗品"),
+	TREASURE("宝物"),
 	EMPTY(""),
 	;
 	private String name;

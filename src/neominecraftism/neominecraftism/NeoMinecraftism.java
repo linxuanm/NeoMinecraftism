@@ -1,17 +1,13 @@
 package neominecraftism.neominecraftism;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import neominecraftism.neominecraftism.command.CommandHandler;
 import neominecraftism.neominecraftism.registry.Registries;
 import neominecraftism.neominecraftism.registry.RegistryHandler;
-import neominecraftism.neominecraftism.rpg.RPGHandler;
-import neominecraftism.neominecraftism.rpg.items.ItemHelper;
 import neominecraftism.neominecraftism.storage.StorageTracker;
 import neominecraftism.neominecraftism.subscriber.ProfessionHandler;
+import neominecraftism.neominecraftism.subscriber.RPGItemHandler;
 import neominecraftism.neominecraftism.subscriber.SpellHandler;
 import neominecraftism.neominecraftism.subscriber.WorldHandler;
 
@@ -40,9 +36,10 @@ public class NeoMinecraftism extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new SpellHandler(), this);
 		this.getServer().getPluginManager().registerEvents(new ProfessionHandler(), this);
 		this.getServer().getPluginManager().registerEvents(new WorldHandler(), this);
-		this.getServer().getPluginManager().registerEvents(new RPGHandler(), this);
+		this.getServer().getPluginManager().registerEvents(new RPGItemHandler(), this);
 
 		ProfessionHandler.init(getServer());
+		RPGItemHandler.init(getServer());
 		CommandHandler.init();
 	}
 	

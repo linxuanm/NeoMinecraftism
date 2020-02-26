@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.bukkit.entity.Player;
+
 import com.google.gson.Gson;
 
 import neominecraftism.neominecraftism.NeoMinecraftism;
@@ -81,5 +83,8 @@ public class StorageTracker {
 		}
 		
 		return new File("neominecraftism/" + uuid.toString() + ".json");
+	}
+	public static PlayerStorage getPlayerStorage(Player player) {
+		return NeoMinecraftism.getInstance().getStorageTracker().getPlayerStorage(player.getUniqueId());
 	}
 }

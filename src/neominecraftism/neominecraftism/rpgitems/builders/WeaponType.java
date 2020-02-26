@@ -1,4 +1,4 @@
-package neominecraftism.neominecraftism.rpg.items;
+package neominecraftism.neominecraftism.rpgitems.builders;
 
 public enum WeaponType {
 

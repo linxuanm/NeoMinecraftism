@@ -4,6 +4,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import neominecraftism.neominecraftism.registry.IRegistryEntry;
+import neominecraftism.neominecraftism.rpgitems.builders.EquipmentType;
+import neominecraftism.neominecraftism.rpgitems.builders.WeaponType;
 
 /**
  * An abstraction for player's profession, it can be understood as identity.
@@ -14,6 +16,7 @@ public abstract class IProfession extends IRegistryEntry<IProfession> {
 
 	public IProfession(String registryName) {
 		super(registryName);
+		
 	}
 	
 	
@@ -24,6 +27,8 @@ public abstract class IProfession extends IRegistryEntry<IProfession> {
 	 */
 	public abstract String getProfessionName();
 	
+	public abstract String[] getDescription();
+
 	/**
 	 * Upgrade player's current profession to this profession.
 	 * Check player's current professions and level is always required.
@@ -45,14 +50,14 @@ public abstract class IProfession extends IRegistryEntry<IProfession> {
 	 * 
 	 * @return The array of items.
 	 */
-	public abstract Material[] getMasterWeapon();
+	public abstract WeaponType[] getMasterWeapon();
 	
 	/**
 	 * get the armor that this profession is allow/recommended to wear
 	 * 
 	 * @return The array of items.
 	 */
-	public abstract Material[] getMasterArmor();
+	public abstract EquipmentType[] getMasterArmor();
 	
 	/**
 	 * the effect to player as the profession is obtained, for example adding attribute modifier and giving profession-specific spells

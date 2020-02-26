@@ -1,4 +1,4 @@
-package neominecraftism.neominecraftism.rpg.items;
+package neominecraftism.neominecraftism.rpgitems.builders;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import neominecraftism.neominecraftism.rpg.items.ItemHelper.AttributeEntry;
+import neominecraftism.neominecraftism.rpgitems.builders.ItemHelper.AttributeEntry;
 import neominecraftism.neominecraftism.util.ItemRarity;
 
 public class RPGMeleeWeapon extends RPGItem {

@@ -1,19 +1,15 @@
 package neominecraftism.neominecraftism.command;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
 import org.bukkit.entity.Player;
 
-import com.google.common.collect.Sets;
-
 import neominecraftism.neominecraftism.NeoMinecraftism;
-import neominecraftism.neominecraftism.rpg.items.ItemHelper;
-import neominecraftism.neominecraftism.rpg.items.RPGItem;
+import neominecraftism.neominecraftism.rpgitems.builders.ItemHelper;
+import neominecraftism.neominecraftism.rpgitems.builders.RPGItem;
 
 public class RPGItemCommand extends BukkitCommand{
 

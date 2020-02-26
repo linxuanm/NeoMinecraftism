@@ -5,17 +5,13 @@ import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 
 import neominecraftism.neominecraftism.NeoMinecraftism;
-import neominecraftism.neominecraftism.profession.ProfessionHelper;
-import neominecraftism.neominecraftism.rpg.Weapons;
 import neominecraftism.neominecraftism.spell.ISpell;
-import neominecraftism.neominecraftism.spell.SpellFactory;
 import neominecraftism.neominecraftism.util.NBTHelper;
 
 public class SpellHandler implements Listener {

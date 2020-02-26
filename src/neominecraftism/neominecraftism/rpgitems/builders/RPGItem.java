@@ -1,17 +1,18 @@
-package neominecraftism.neominecraftism.rpg.items;
+package neominecraftism.neominecraftism.rpgitems.builders;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import neominecraftism.neominecraftism.registry.IRegistryEntry;
-import neominecraftism.neominecraftism.rpg.items.ItemHelper.EnchantmentEntry;
+import neominecraftism.neominecraftism.rpgitems.builders.ItemHelper.EnchantmentEntry;
 import neominecraftism.neominecraftism.util.ItemRarity;
 import neominecraftism.neominecraftism.util.NBTHelper;
 
@@ -58,7 +59,7 @@ public class RPGItem extends IRegistryEntry<RPGItem> {
 		for(EnchantmentEntry enchant: enchantments) {
 			meta.addEnchant(enchant.getEnchantment(), enchant.getLvl(), true);
 		}
-//		meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 		meta.getPersistentDataContainer().set(NBTHelper.namespace("item_id"), PersistentDataType.STRING, this.getRegistryName());
 		
 		itemstack.setItemMeta(meta);
@@ -82,7 +83,36 @@ public class RPGItem extends IRegistryEntry<RPGItem> {
 		stack.setAmount(amount);
 		return stack;
 	}
+	/**
+	 * behave when player right click on block/air
+	 * @param player player that hold the item
+	 * @return return the time for the cool down of the usage (in ticks).
+	 */
+	public int onRightClick(Player player) {return 0;}
 	
+	/**
+	 * behave when player finish using the item
+	 * for example finish eating/drinking
+	 * 
+	 * @param player player that hold the item
+	 */
+	public void onConsumed(Player player) {}
 	
+	/**
+	 * behave when player toggle into sneak state
+	 * @param player player that hold the item
+	 */
+	public void onEnterSneak(Player player) {}
 	
+	/**
+	 * behave when player toggle into sprint state
+	 * @param player player that hold the item
+	 */
+	public void onEnterSprint(Player player) {}
+	
+	/**
+	 * behave per half second (10ticks)
+	 * @param player player that hold the item
+	 */
+	public void perHalfSecond(Player player) {}
 }

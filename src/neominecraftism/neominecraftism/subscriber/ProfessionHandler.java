@@ -1,6 +1,5 @@
 package neominecraftism.neominecraftism.subscriber;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,7 +18,7 @@ import neominecraftism.neominecraftism.profession.ProfessionHelper;
 public class ProfessionHandler implements Listener {
 
 	public static void init(Server server) {
-		new ProfessionRunnable(server).runTaskTimer(NeoMinecraftism.getInstance(), 0, 10);
+		new ProfessionChecker(server).runTaskTimer(NeoMinecraftism.getInstance(), 0, 10);
 	}
 	
 	@EventHandler(priority = EventPriority.HIGHEST)
@@ -32,10 +31,10 @@ public class ProfessionHandler implements Listener {
 	/**
 	 * a runnable that is scheduled for every 10 tick
 	 */
-	static class ProfessionRunnable extends BukkitRunnable{
+	static class ProfessionChecker extends BukkitRunnable{
 		private Server server;
 		private int count;
-		public ProfessionRunnable(Server server) {
+		public ProfessionChecker(Server server) {
 			this.server = server;
 		}
 		

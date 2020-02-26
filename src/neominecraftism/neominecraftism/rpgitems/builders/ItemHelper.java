@@ -1,4 +1,4 @@
-package neominecraftism.neominecraftism.rpg.items;
+package neominecraftism.neominecraftism.rpgitems.builders;
 
 import java.util.UUID;
 
@@ -7,8 +7,11 @@ import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.attribute.AttributeModifier.Operation;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataType;
 
 import neominecraftism.neominecraftism.NeoMinecraftism;
+import neominecraftism.neominecraftism.util.NBTHelper;
 
 public class ItemHelper {
 	
@@ -16,9 +19,17 @@ public class ItemHelper {
 		return NeoMinecraftism.getInstance().getRegistryHandler().get(RPGItem.class, item_id);
 	}
 	
+	public static boolean isRPGItem(ItemStack stack) {
+		return stack.getItemMeta().getPersistentDataContainer().has(NBTHelper.namespace("item_id"), PersistentDataType.STRING);
+	}
 	
-	
-	
+	public static RPGItem getItem(ItemStack stack) {
+		if(isRPGItem(stack)) {
+			String registry_name = stack.getItemMeta().getPersistentDataContainer().get(NBTHelper.namespace("item_id"), PersistentDataType.STRING);
+			return getItem(registry_name);
+		}
+		return null;
+	}
 	
 	public static class EnchantmentEntry {
 		private Enchantment enchantment;
