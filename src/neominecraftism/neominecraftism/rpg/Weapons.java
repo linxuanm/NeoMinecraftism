@@ -1,14 +1,14 @@
-package neominecraftism.neominecraftism.rpg.items;
+package neominecraftism.neominecraftism.rpg;
 
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier.Operation;
 import org.bukkit.inventory.EquipmentSlot;
 
-import neominecraftism.neominecraftism.rpg.RPGItem;
-import neominecraftism.neominecraftism.rpg.RPGMeleeWeapon;
-import neominecraftism.neominecraftism.rpg.RPGMeleeWeapon.AttributeEntry;
-import neominecraftism.neominecraftism.rpg.WeaponType;
+import neominecraftism.neominecraftism.rpg.items.ItemHelper.AttributeEntry;
+import neominecraftism.neominecraftism.rpg.items.RPGItem;
+import neominecraftism.neominecraftism.rpg.items.RPGMeleeWeapon;
+import neominecraftism.neominecraftism.rpg.items.WeaponType;
 import neominecraftism.neominecraftism.util.ItemRarity;
 
 public class Weapons {

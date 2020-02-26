@@ -1,7 +1,9 @@
 package neominecraftism.neominecraftism.registry;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class RegistryHandler {
 	
@@ -21,5 +23,8 @@ public class RegistryHandler {
 	
 	public <T extends IRegistryEntry<?>> T get(Class<? extends IRegistryEntry<?>> clazz, String name) {
 		return this.registries.get(clazz).get(name);
+	}
+	public <T extends IRegistryEntry<?>> Set<String> getRegistryNames(Class<? extends IRegistryEntry<?>> clazz) {
+		return this.registries.get(clazz).getKeySet();
 	}
 }

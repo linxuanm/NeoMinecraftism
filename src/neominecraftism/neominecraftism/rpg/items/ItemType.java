@@ -1,4 +1,4 @@
-package neominecraftism.neominecraftism.rpg;
+package neominecraftism.neominecraftism.rpg.items;
 
 public enum ItemType {
 

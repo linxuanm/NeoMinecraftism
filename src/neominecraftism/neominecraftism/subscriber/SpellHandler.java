@@ -1,6 +1,7 @@
 package neominecraftism.neominecraftism.subscriber;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -12,7 +13,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import neominecraftism.neominecraftism.NeoMinecraftism;
 import neominecraftism.neominecraftism.profession.ProfessionHelper;
-import neominecraftism.neominecraftism.rpg.items.Weapons;
+import neominecraftism.neominecraftism.rpg.Weapons;
 import neominecraftism.neominecraftism.spell.ISpell;
 import neominecraftism.neominecraftism.spell.SpellFactory;
 import neominecraftism.neominecraftism.util.NBTHelper;
@@ -34,22 +35,18 @@ public class SpellHandler implements Listener {
 				if (spell.canUse(event.getPlayer(), event.getClickedBlock())) {
 					spell.onUse(event.getPlayer(), event.getClickedBlock());
 					NBTHelper.disableItem(stack);
+					stack.setType(Material.BARRIER);
 					Bukkit.getScheduler().runTaskLater(NeoMinecraftism.getInstance(), () -> {
 						NBTHelper.enableItem(stack);
+						stack.setType(spell.getRepresentation());
 					}, spell.getCoolDown());
+					
 				}
 			});
 		} 
 	}
 	
-	
-	@EventHandler(priority = EventPriority.HIGHEST)
-	public void onSpellUse(PlayerDropItemEvent event) {
-		event.getPlayer().getInventory().addItem(SpellFactory.createSpellStack("mass_healing_spell"));
-		event.getPlayer().getInventory().addItem(Weapons.BASE_AXE.build());
-		ProfessionHelper.removeProfession(event.getPlayer(), ProfessionHelper.getProfession("ranger"));
-	}
-	
+
 	
 	
 	@EventHandler(priority = EventPriority.HIGHEST)

@@ -1,4 +1,4 @@
-package neominecraftism.neominecraftism.rpg;
+package neominecraftism.neominecraftism.rpg.items;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import neominecraftism.neominecraftism.registry.IRegistryEntry;
+import neominecraftism.neominecraftism.rpg.items.ItemHelper.EnchantmentEntry;
 import neominecraftism.neominecraftism.util.ItemRarity;
 import neominecraftism.neominecraftism.util.NBTHelper;
 
@@ -82,31 +83,6 @@ public class RPGItem extends IRegistryEntry<RPGItem> {
 		return stack;
 	}
 	
-	public static class EnchantmentEntry {
-		private Enchantment enchantment;
-		private int lvl;
-		public EnchantmentEntry(Enchantment enchantment, int lvl) {
-			this.enchantment = enchantment;
-			this.lvl = lvl;
-		}
-		
-		public Enchantment getEnchantment() {
-			return enchantment;
-		}
-
-		public void setEnchantment(Enchantment enchantment) {
-			this.enchantment = enchantment;
-		}
-
-		public int getLvl() {
-			return lvl;
-		}
-
-		public void setLvl(int lvl) {
-			this.lvl = lvl;
-		}
-
-
-	}
+	
 	
 }

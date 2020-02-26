@@ -1,7 +1,9 @@
 package neominecraftism.neominecraftism.registry;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * A manager for one type of registry.
@@ -25,5 +27,9 @@ public class RegistryType {
 	@SuppressWarnings("unchecked")
 	public <T extends IRegistryEntry<?>> T get(String name) {
 		return (T) this.entries.get(name);
+	}
+	
+	public <T extends IRegistryEntry<?>> Set<String> getKeySet() {
+		return this.entries.keySet();
 	}
 }

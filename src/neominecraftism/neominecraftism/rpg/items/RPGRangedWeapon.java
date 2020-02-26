@@ -1,4 +1,4 @@
-package neominecraftism.neominecraftism.rpg;
+package neominecraftism.neominecraftism.rpg.items;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -15,6 +15,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import neominecraftism.neominecraftism.rpg.items.ItemHelper.AttributeEntry;
 import neominecraftism.neominecraftism.util.ItemRarity;
 
 public class RPGRangedWeapon extends RPGItem {
@@ -61,43 +62,6 @@ public class RPGRangedWeapon extends RPGItem {
 	public RPGRangedWeapon withOtherAttribute(AttributeEntry attribute) {
 		this.attributes.add(attribute);
 		return this;
-	}
-
-	
-	
-	
-	
-	
-	
-	public static class AttributeEntry {
-		private Attribute attribute;
-		private AttributeModifier attribute_modifier;
-		
-		public AttributeEntry(Attribute attribute, EquipmentSlot slot, double amount, Operation operation) {
-			this.attribute = attribute;
-			this.attribute_modifier  = new AttributeModifier(
-					UUID.randomUUID(),
-					attribute.name(), 
-					amount, 
-					operation,
-					slot);
-		}
-
-		public Attribute getAttribute() {
-			return attribute;
-		}
-
-		public void setAttribute(Attribute attribute) {
-			this.attribute = attribute;
-		}
-
-		public AttributeModifier getAttributeModifier() {
-			return attribute_modifier;
-		}
-
-		public void setAttributeModifier(AttributeModifier attribute_modifier) {
-			this.attribute_modifier = attribute_modifier;
-		}	
 	}
 
 }
