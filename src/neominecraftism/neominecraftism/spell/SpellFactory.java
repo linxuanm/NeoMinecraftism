@@ -18,6 +18,7 @@ public class SpellFactory {
 		return createSpellStack(NeoMinecraftism.getInstance().getRegistryHandler().get(ISpell.class, name));
 	}
 	
+	
 	public static ItemStack createSpellStack(ISpell spell) {
 		ItemStack caster = new ItemStack(spell.getRepresentation());
 		NBTHelper.makeUnique(caster);

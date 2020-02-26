@@ -2,6 +2,7 @@ package neominecraftism.neominecraftism.rpg;
 
 public enum ItemType {
 
+	EQUIPMENT("装备"),
 	WEAPON("武器"),
 	TASK_ITEM("任务物品"),
 	MATERIAL("材料"),

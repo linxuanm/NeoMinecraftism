@@ -45,7 +45,7 @@ public class ProfessionHelper {
 	}
 
 	public static List<IProfession> getProfessions(Player player) {
-		String[] profession_names = NeoMinecraftism.getInstance().getStorageTracker().getPlayerStorage(player.getUniqueId()).getProfessions();
+		String[] profession_names = NeoMinecraftism.getInstance().getStorageTracker().getPlayerStorage(player.getUniqueId()).professions;
 		ArrayList<IProfession> professions  = new ArrayList<IProfession>();
 		if(profession_names!=null) {
 			for(String name: profession_names) {
@@ -60,7 +60,7 @@ public class ProfessionHelper {
 			for(int i = 0;i<professions.size();i++) {
 				profession_names[i] = professions.get(i).getRegistryName();
 			}
-			NeoMinecraftism.getInstance().getStorageTracker().getPlayerStorage(player.getUniqueId()).setProfessions(profession_names);
+			NeoMinecraftism.getInstance().getStorageTracker().getPlayerStorage(player.getUniqueId()).professions = profession_names;
 		}	
 	}
 }

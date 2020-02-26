@@ -26,9 +26,7 @@ public class ProfessionHandler implements Listener {
 	public void onPlayerLogin(PlayerLoginEvent event) {
 		List<IProfession> professions = ProfessionHelper.getProfessions(event.getPlayer());
 		if(professions.size()==0) {
-			List<IProfession> list= new ArrayList<IProfession>();
-			list.add(ProfessionHelper.getProfession("civilian"));
-			ProfessionHelper.setProfessions(event.getPlayer(), list);
+			ProfessionHelper.addProfession(event.getPlayer(), ProfessionHelper.getProfession("civilian"));
 		}
 	}
 	/**
@@ -40,6 +38,7 @@ public class ProfessionHandler implements Listener {
 		public ProfessionRunnable(Server server) {
 			this.server = server;
 		}
+		
 		
 		@Override
 		public void run() {
