@@ -28,7 +28,7 @@ public class RPGMeleeWeapon extends RPGItem {
 	public RPGMeleeWeapon(String register_name, String display_name, Material material, WeaponType type, ItemRarity rarity, int level) {
 		super(register_name, display_name, material, ItemType.WEAPON, rarity);
 		this.level = level;
-		this.weapon_type=type;
+		this.weapon_type = type;
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class RPGMeleeWeapon extends RPGItem {
 		ItemMeta meta = itemstack.getItemMeta();
 		//add lore
 		List<String> strings= new ArrayList<String>();
-		strings.add(ChatColor.ITALIC+String.format("%d级%s", this.level, this.weapon_type.getDisplayText()));
+		strings.add(ChatColor.ITALIC+String.format("%d级%s", this.level, this.getWeaponType().getDisplayText()));
 		if(this.lore!=null) {
 			for(String s:this.lore) {
 				strings.add(ChatColor.ITALIC+s);
@@ -76,6 +76,10 @@ public class RPGMeleeWeapon extends RPGItem {
 	public RPGMeleeWeapon withOtherAttribute(AttributeEntry attribute) {
 		this.attributes.add(attribute);
 		return this;
+	}
+
+	public WeaponType getWeaponType() {
+		return weapon_type;
 	}
 
 	

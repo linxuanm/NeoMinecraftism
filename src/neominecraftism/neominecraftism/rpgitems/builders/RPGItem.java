@@ -6,6 +6,7 @@ import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -13,6 +14,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import neominecraftism.neominecraftism.registry.IRegistryEntry;
 import neominecraftism.neominecraftism.rpgitems.builders.ItemHelper.EnchantmentEntry;
+import neominecraftism.neominecraftism.spell.ISpell;
 import neominecraftism.neominecraftism.util.ItemRarity;
 import neominecraftism.neominecraftism.util.NBTHelper;
 
@@ -115,4 +117,17 @@ public class RPGItem extends IRegistryEntry<RPGItem> {
 	 * @param player player that hold the item
 	 */
 	public void perHalfSecond(Player player) {}
+	
+	public double onGainMana(Player player, double mana_add, boolean is_mainhand) {
+		return mana_add;
+	}
+	public double onGetIntellect(Player player, double intellect, EquipmentSlot slot) {
+		return intellect;
+	}
+	public double onGetStrength(Player player, double strength, EquipmentSlot slot) {
+		return strength;
+	}
+	public double onCauseMagicDamage(Player player, double amount, ISpell spell) {
+		return amount;
+	}
 }

@@ -19,9 +19,9 @@ public class ProfessionHelper {
 	public static IProfession getProfession(String name) {
 		return NeoMinecraftism.getInstance().getRegistryHandler().get(IProfession.class, name);
 	}
-	public static boolean hasProfession(Player player, IProfession profession) {
+	public static boolean hasProfession(Player player, String profession) {
 		List<IProfession> current_professions = getProfessions(player);
-		return current_professions.contains(profession);
+		return current_professions.contains(getProfession(profession));
 	}
 	public static boolean addProfession(Player player, IProfession profession) {
 		List<IProfession> current_professions = getProfessions(player);

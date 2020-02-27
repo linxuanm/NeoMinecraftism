@@ -11,11 +11,11 @@ public class ManaHelper {
 	 * @param amount do not allow negative value
 	 * @return return true if mana successfully add with certain amount, return false if no mana is added
 	 */
-	public static boolean addMana(Player player, int amount) {
+	public static boolean addMana(Player player, double amount) {
 		if(amount<0) throw new IllegalArgumentException();
 		
-		int mana = StorageTracker.getPlayerStorage(player).mana;
-		int mana_max = StorageTracker.getPlayerStorage(player).mana_max;
+		double mana = StorageTracker.getPlayerStorage(player).mana;
+		double mana_max = StorageTracker.getPlayerStorage(player).mana_max;
 		if(mana<mana_max) {
 			StorageTracker.getPlayerStorage(player).mana = Math.min(mana+amount, mana_max);
 			return true;
@@ -29,9 +29,9 @@ public class ManaHelper {
 	 * @param amount do not allow negative value
 	 * @return true if the player has enough mana to be reduced.
 	 */
-	public static boolean canReduceMana(Player player, int amount) {
+	public static boolean canReduceMana(Player player, double amount) {
 		if(amount<0) throw new IllegalArgumentException();
-		int mana = StorageTracker.getPlayerStorage(player).mana;
+		double mana = StorageTracker.getPlayerStorage(player).mana;
 		if(mana-amount<0) {
 			return false;
 		} else {
@@ -44,10 +44,10 @@ public class ManaHelper {
 	 * @param amount do not allow negative value,
 	 * @return false if the mana does not change
 	 */
-	public static boolean reduceMana(Player player, int amount) {
+	public static boolean reduceMana(Player player, double amount) {
 		if(amount<0) throw new IllegalArgumentException();
 
-		int mana = StorageTracker.getPlayerStorage(player).mana;
+		double mana = StorageTracker.getPlayerStorage(player).mana;
 		if(mana>0) {
 			StorageTracker.getPlayerStorage(player).mana = Math.max(mana-amount, 0);
 			return true;
@@ -61,7 +61,7 @@ public class ManaHelper {
 	 * @param amount
 	 * @return true if the amount is between 0 and the player's max mana
 	 */
-	public static boolean setMana(Player player, int amount) {
+	public static boolean setMana(Player player, double amount) {
 		if(amount>StorageTracker.getPlayerStorage(player).mana_max||amount<0) {
 			return false;
 		} else {
@@ -69,7 +69,7 @@ public class ManaHelper {
 			return true;
 		}
 	}
-	public static int getMana(Player player) {
+	public static double getMana(Player player) {
 		return StorageTracker.getPlayerStorage(player).mana;
 	}
 }

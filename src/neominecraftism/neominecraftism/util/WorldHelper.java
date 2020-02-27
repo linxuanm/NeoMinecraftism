@@ -11,4 +11,8 @@ public class WorldHelper {
 	public static Collection<Entity> getNearbyEntities(Location loc, double r, Predicate<Entity> tester) {
 		return loc.getWorld().getNearbyEntities(loc, r, r, r, tester);
 	}
+	
+	public static Collection<Entity> getNearbyEntities(Location loc, double r) {
+		return loc.getWorld().getNearbyEntities(loc, r, r, r);
+	}
 }

@@ -1,10 +1,13 @@
 package neominecraftism.neominecraftism.profession;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 import neominecraftism.neominecraftism.registry.IRegistryEntry;
 import neominecraftism.neominecraftism.rpgitems.builders.EquipmentType;
 import neominecraftism.neominecraftism.rpgitems.builders.WeaponType;
+import neominecraftism.neominecraftism.spell.ISpell;
 
 /**
  * An abstraction for player's profession, it can be understood as identity.
@@ -15,10 +18,7 @@ public abstract class IProfession extends IRegistryEntry<IProfession> {
 
 	public IProfession(String registryName) {
 		super(registryName);
-		
 	}
-	
-	
 	/**
 	 * Gets the display name of the profession.
 	 * 
@@ -88,5 +88,30 @@ public abstract class IProfession extends IRegistryEntry<IProfession> {
 	 */
 	public void effectPerTenSecond(Player player) {
 	}
-
+	/**
+	 * 
+	 * @param player
+	 * @param target
+	 * @param raw_damage
+	 * @return the amount of damage should be imposed.
+	 */
+	public double onAttack(Player player, Entity target, DamageCause cause, double raw_damage) {
+		return raw_damage;
+	}
+	public double beingAttacked(Player player, Entity damager, DamageCause cause, double raw_damage) {
+		return raw_damage;
+	}
+	
+	public double onGainMana(Player player, double mana_add) {
+		return mana_add;
+	}
+	public double onCauseMagicDamage(Player player, double amount, ISpell spell) {
+		return amount;
+	}
+	public double onGetStrength(Player player, double strength) {
+		return strength;
+	}
+	public double onGetIntellect(Player player, double intellect) {
+		return intellect;
+	}
 }

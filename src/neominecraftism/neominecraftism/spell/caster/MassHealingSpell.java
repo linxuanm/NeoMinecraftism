@@ -20,7 +20,7 @@ public class MassHealingSpell extends ISpell {
 
 	@Override
 	public SpellType getSpellType() {
-		return SpellType.ASSIST_SPELL;
+		return SpellType.DEVINE_SPELL;
 	}
 
 	@Override

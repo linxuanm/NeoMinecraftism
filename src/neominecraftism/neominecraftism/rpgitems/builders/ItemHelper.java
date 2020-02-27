@@ -34,7 +34,7 @@ public class ItemHelper {
 		}
 		return null;
 	}
-	
+
 	public static class EnchantmentEntry {
 		private Enchantment enchantment;
 		private int lvl;

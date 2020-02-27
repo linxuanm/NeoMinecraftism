@@ -40,6 +40,7 @@ public class NeoMinecraftism extends JavaPlugin {
 
 		ProfessionHandler.init(getServer());
 		RPGItemHandler.init(getServer());
+		SpellHandler.init(getServer());
 		CommandHandler.init();
 	}
 	

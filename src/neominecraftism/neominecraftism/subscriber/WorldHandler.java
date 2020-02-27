@@ -29,7 +29,7 @@ public class WorldHandler implements Listener {
 	
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerTalk(PlayerInteractEntityEvent event) {
-		if (event.getRightClicked() instanceof Villager && !ProfessionHelper.hasProfession(event.getPlayer(), ProfessionHelper.getProfession("civilian"))) {
+		if (event.getRightClicked() instanceof Villager && !ProfessionHelper.hasProfession(event.getPlayer(),"civilian")) {
 			event.setCancelled(true);
 			event.getPlayer().sendMessage("无法与村民交易，因为你不是城镇居民！");
 		}
