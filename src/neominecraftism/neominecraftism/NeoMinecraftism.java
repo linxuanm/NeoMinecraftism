@@ -71,10 +71,8 @@ public class NeoMinecraftism extends JavaPlugin {
 	}
 	
 	private void populateRegistries() {
-		Registries.registerSpells(registryHandler);
 		Registries.registerMenus(registryHandler);
-		Registries.registerProfession(registryHandler);
-		Registries.registerItem(registryHandler);
+		Registries.registerRPGElements(registryHandler);
 
 	}
 }

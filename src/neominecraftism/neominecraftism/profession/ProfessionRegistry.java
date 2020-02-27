@@ -1,12 +1,9 @@
 package neominecraftism.neominecraftism.profession;
 
-import java.lang.reflect.Field;
-
 import neominecraftism.neominecraftism.profession.identities.Civilian;
 import neominecraftism.neominecraftism.profession.identities.Ranger;
+import neominecraftism.neominecraftism.profession.identities.Warrior;
 import neominecraftism.neominecraftism.registry.RegistryHandler;
-import neominecraftism.neominecraftism.spell.ISpell;
-import neominecraftism.neominecraftism.spell.Spells;
 
 public class ProfessionRegistry {
 
@@ -15,6 +12,7 @@ public class ProfessionRegistry {
 		
 		handler.register(IProfession.class, new Civilian());
 		handler.register(IProfession.class, new Ranger());
+		handler.register(IProfession.class, new Warrior());
 
 	}
 	

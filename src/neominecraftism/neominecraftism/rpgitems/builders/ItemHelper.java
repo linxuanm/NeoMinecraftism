@@ -2,6 +2,7 @@ package neominecraftism.neominecraftism.rpgitems.builders;
 
 import java.util.UUID;
 
+import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.attribute.AttributeModifier.Operation;
@@ -20,6 +21,9 @@ public class ItemHelper {
 	}
 	
 	public static boolean isRPGItem(ItemStack stack) {
+		if(stack==null || stack.getType()==Material.AIR) {
+			return false;
+		}
 		return stack.getItemMeta().getPersistentDataContainer().has(NBTHelper.namespace("item_id"), PersistentDataType.STRING);
 	}
 	

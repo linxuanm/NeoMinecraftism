@@ -12,7 +12,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import neominecraftism.neominecraftism.NeoMinecraftism;
 import neominecraftism.neominecraftism.profession.ProfessionHelper;
-import neominecraftism.neominecraftism.profession.Professions;
 
 public class WorldHandler implements Listener {
 	
@@ -30,7 +29,7 @@ public class WorldHandler implements Listener {
 	
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerTalk(PlayerInteractEntityEvent event) {
-		if (event.getRightClicked() instanceof Villager && ProfessionHelper.hasProfession(event.getPlayer(), Professions.CIVILIAN)) {
+		if (event.getRightClicked() instanceof Villager && !ProfessionHelper.hasProfession(event.getPlayer(), ProfessionHelper.getProfession("civilian"))) {
 			event.setCancelled(true);
 			event.getPlayer().sendMessage("无法与村民交易，因为你不是城镇居民！");
 		}

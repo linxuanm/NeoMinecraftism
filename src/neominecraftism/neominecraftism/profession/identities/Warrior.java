@@ -3,7 +3,6 @@ package neominecraftism.neominecraftism.profession.identities;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import neominecraftism.neominecraftism.profession.IProfession;
@@ -45,16 +44,22 @@ public class Warrior extends IProfession {
 	public EquipmentType[] getMasterArmor() {
 		return new EquipmentType[] {EquipmentType.BOOTS,EquipmentType.HAT,EquipmentType.LEGGINGS,EquipmentType.LIGHT_CHESTPLATES,EquipmentType.HELMET,EquipmentType.HEAVY_CHESTPLATES};
 	}
+	
 	@Override
 	public void effectPerHalfSecond(Player player) {
 		ItemStack offhand = player.getInventory().getItemInOffHand();
 		if(offhand.equals(null)||offhand.getType().equals(Material.AIR)) {
 			RPGItem item = ItemHelper.getItem(player.getInventory().getItemInMainHand());
 			if (item!=null && item instanceof RPGMeleeWeapon) {
-				player.addPotionEffect(PotionEffectBuilder.buildHidden(PotionEffectType.INCREASE_DAMAGE, 20, 0));
+				if(player.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)) {
+					int lvl = player.getPotionEffect(PotionEffectType.INCREASE_DAMAGE).getAmplifier();
+					player.addPotionEffect(PotionEffectBuilder.buildHidden(PotionEffectType.INCREASE_DAMAGE, 20, lvl+1),true);
+				}else {
+					player.addPotionEffect(PotionEffectBuilder.buildHidden(PotionEffectType.INCREASE_DAMAGE, 20, 0),true);
+				}
 			}
 		} else {
-			player.addPotionEffect(PotionEffectBuilder.buildHidden(PotionEffectType.WEAKNESS, 20, 10));
+			player.addPotionEffect(PotionEffectBuilder.buildHidden(PotionEffectType.WEAKNESS, 20, 10),true);
 		}
 		super.effectPerHalfSecond(player);
 	}

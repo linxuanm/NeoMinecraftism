@@ -45,6 +45,7 @@ public class StorageTracker {
 		}
 	}
 	
+	
 	public void dumpPlayer(UUID uuid) {
 		File file = getFileFromUUID(uuid);
 		
@@ -63,6 +64,7 @@ public class StorageTracker {
 			);
 		}
 	}
+	
 	
 	public void dumpAll() {
 		this.storages.keySet().forEach(this::dumpPlayer);

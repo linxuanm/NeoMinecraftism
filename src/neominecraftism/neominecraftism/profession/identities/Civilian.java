@@ -1,6 +1,5 @@
 package neominecraftism.neominecraftism.profession.identities;
 
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import neominecraftism.neominecraftism.profession.IProfession;

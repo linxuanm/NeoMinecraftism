@@ -17,6 +17,7 @@ public class RegistryHandler {
 	}
 	
 	public void register(Class<? extends IRegistryEntry<?>> clazz, IRegistryEntry<?> entry) {
+		System.out.println("[NeoMinecraftism] Registering "+clazz.getSimpleName()+" : "+entry.getRegistryName());
 		this.registries.get(clazz).register(entry);
 	}
 	

@@ -9,6 +9,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
+import com.sun.istack.internal.NotNull;
+
 import neominecraftism.neominecraftism.NeoMinecraftism;
 
 public class NBTHelper {
@@ -33,11 +35,12 @@ public class NBTHelper {
 		setTag(stack, "disabled", PersistentDataType.INTEGER, 0);
 	}
 	
-	public static <T> Optional<T> getTag(ItemStack stack, String name, PersistentDataType<?, T> type) {
+	public static <T> Optional<T> getTag(@NotNull ItemStack stack, String name, PersistentDataType<?, T> type) {
 		return getTag(stack, namespace(name), type);
 	}
 	
-	public static <T> Optional<T> getTag(ItemStack stack, NamespacedKey id, PersistentDataType<?, T> type) {
+	 
+	public static <T> Optional<T> getTag(@NotNull ItemStack stack, NamespacedKey id, PersistentDataType<?, T> type) {
 		return Optional.ofNullable(stack.getItemMeta().getPersistentDataContainer().get(id, type));
 	}
 	
